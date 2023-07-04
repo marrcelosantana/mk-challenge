@@ -12,13 +12,17 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.GRAY_DISABLED};
   }
 
+  html, body {
+    height: 100%;
+  }
+
   body{
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
     -webkit-font-smoothing: antialiased;
   }
   
   body, input, textarea, button{
-    font: 400 1rem Roboto, sans-serif;
+    font: 400 1rem Inter, sans-serif;
   }
 
   [disabled]{

@@ -7,6 +7,8 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 22px 40px;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  position: absolute;
 `;
 
 export const Image = styled.img`
