@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ChangeEvent, useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import { Button } from "@/components/Button";
 import { genders, marital_status } from "@/utils/data";
@@ -126,6 +126,10 @@ export function Client() {
 
       await api.put(`/clients/${selectedClientId}`, newClient);
       await fetchClients();
+
+      toast.success("Cliente atualizado!", {
+        duration: 3000,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -133,6 +137,8 @@ export function Client() {
 
   return (
     <Container>
+      <Toaster position="top-right" reverseOrder={false} />
+
       <Section>
         <Title>Buscar cliente</Title>
         <Line />

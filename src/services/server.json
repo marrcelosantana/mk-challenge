@@ -17,7 +17,7 @@
     },
     {
       "id": "10op-56fX-12mk",
-      "name": "Maria Hill",
+      "name": "Maria Diaz",
       "cpf": "187.234.912-02",
       "rg": "8607702495654",
       "oe": "SSP",
@@ -32,8 +32,8 @@
     },
     {
       "id": "op91-l081-fu98",
-      "name": "Carlos Albuquerque",
-      "cpf": "111.522.943-11",
+      "name": "Peter Parker",
+      "cpf": "111.522.943-12",
       "rg": "29900098956111",
       "oe": "SSP",
       "phone": "(21) 1234-4098",
@@ -42,8 +42,8 @@
       "nationality": "Brasileiro",
       "uf": "RJ",
       "city": "Rio de Janeiro",
-      "status": "Divorciado",
-      "gender": "Masculino"
+      "gender": "Masculino",
+      "status": "Divorciado"
     },
     {
       "id": "ghB7-g76H-11Lp",
