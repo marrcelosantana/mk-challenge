@@ -12,6 +12,8 @@ import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { v4 as uuidv4 } from "uuid";
+
 import {
   Actions,
   BackLink,
@@ -67,12 +69,14 @@ export function Client() {
   const [selectedGender, setSelectedGender] = useState<string>("default");
   const [selectedStatus, setSelectedStatus] = useState<string>("default");
 
+  const [createMode, setCreateMode] = useState(true);
+
   function fetchClientId() {
     const data = clients.find((item) => item.name === selectedClient);
     setSelectedClientId(data?.id);
   }
 
-  const { control, setValue, handleSubmit } = useForm<FormDataProps>({
+  const { control, setValue, handleSubmit, reset } = useForm<FormDataProps>({
     resolver: yupResolver(schema),
   });
 
@@ -97,9 +101,44 @@ export function Client() {
       setSelectedUf(client.uf);
       setSelectedGender(client.gender);
       setSelectedStatus(client.status);
+
+      setCreateMode(false);
     }
 
     return;
+  }
+
+  async function handleCreate(data: FormDataProps) {
+    const newClient = {
+      id: uuidv4(),
+      name: data.name,
+      cpf: data.cpf,
+      rg: data.rg,
+      oe: data.oe,
+      phone: data.phone,
+      cellphone: data.cellphone,
+      birth_date: data.birth_date,
+      nationality: data.nationality,
+      uf: ufSelected,
+      city: selectedCity,
+      gender: selectedGender,
+      status: selectedStatus,
+    };
+
+    try {
+      await api.post("/clients", newClient);
+      await fetchClients();
+
+      toast.success("Cliente adicionado!", {
+        duration: 3000,
+      });
+
+      reset();
+    } catch (error) {
+      toast.error("Não foi possivel adicionar cliente!", {
+        duration: 3000,
+      });
+    }
   }
 
   async function handleUpdate(data: FormDataProps) {
@@ -107,23 +146,23 @@ export function Client() {
       return;
     }
 
-    try {
-      const newClient = {
-        id: selectedClientId,
-        name: data.name,
-        cpf: data.cpf,
-        rg: data.rg,
-        oe: data.oe,
-        phone: data.phone,
-        cellphone: data.cellphone,
-        birth_date: data.birth_date,
-        nationality: data.nationality,
-        uf: ufSelected,
-        city: selectedCity,
-        gender: selectedGender,
-        status: selectedStatus,
-      };
+    const newClient = {
+      id: uuidv4(),
+      name: data.name,
+      cpf: data.cpf,
+      rg: data.rg,
+      oe: data.oe,
+      phone: data.phone,
+      cellphone: data.cellphone,
+      birth_date: data.birth_date,
+      nationality: data.nationality,
+      uf: ufSelected,
+      city: selectedCity,
+      gender: selectedGender,
+      status: selectedStatus,
+    };
 
+    try {
       await api.put(`/clients/${selectedClientId}`, newClient);
       await fetchClients();
 
@@ -131,8 +170,31 @@ export function Client() {
         duration: 3000,
       });
     } catch (error) {
-      console.log(error);
+      toast.error("Erro ao atualizar cliente!", {
+        duration: 3000,
+      });
     }
+  }
+
+  function handleChangeMode() {
+    reset({
+      name: "",
+      cpf: "",
+      rg: "",
+      birth_date: "",
+      cellphone: "",
+      phone: "",
+      nationality: "",
+      oe: "",
+    });
+
+    setSelectedClient(null);
+    setSelectedCity("default");
+    setSelectedUf("default");
+    setSelectedGender("default");
+    setSelectedStatus("default");
+
+    setCreateMode(true);
   }
 
   return (
@@ -159,7 +221,13 @@ export function Client() {
           </Select>
 
           <SearchButton onClick={handleSearch}>Buscar</SearchButton>
-          <Button title="Adcionar pessoas" model="primary" />
+          <Button
+            title="Adcionar pessoas"
+            model="primary"
+            onClick={() => {
+              handleChangeMode();
+            }}
+          />
         </Actions>
       </Section>
       <Divider />
@@ -388,19 +456,27 @@ export function Client() {
         </Section>
         <Divider />
 
-        <Button
-          title="Atualizar"
-          model="default"
-          disabled={!selectedClient}
-          onClick={handleSubmit(handleUpdate)}
-        />
+        {!createMode ? (
+          <Button
+            title="Atualizar"
+            model="default"
+            disabled={!selectedClient}
+            onClick={handleSubmit(handleUpdate)}
+          />
+        ) : (
+          <Button
+            title="Adicionar"
+            model="default"
+            onClick={handleSubmit(handleCreate)}
+          />
+        )}
         <Divider />
-
-        <Footer>
-          <Button title="Continuar" model="secondary" />
-          <BackLink>Voltar</BackLink>
-        </Footer>
       </Form>
+
+      <Footer>
+        <Button title="Continuar" model="secondary" />
+        <BackLink>Voltar</BackLink>
+      </Footer>
     </Container>
   );
 }
