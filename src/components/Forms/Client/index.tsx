@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { Button } from "@/components/Button";
 import { genders, marital_status } from "@/utils/data";
@@ -59,13 +59,26 @@ export function Client() {
   const { ufs, cities, ufSelected, setSelectedUf } = useIBGE();
 
   const [selectedClient, setSelectedClient] = useState<string | null>(null);
+  const [selectedClientId, setSelectedClientId] = useState<string | undefined>(
+    ""
+  );
+
   const [selectedCity, setSelectedCity] = useState<string>("default");
   const [selectedGender, setSelectedGender] = useState<string>("default");
   const [selectedStatus, setSelectedStatus] = useState<string>("default");
 
+  function fetchClientId() {
+    const data = clients.find((item) => item.name === selectedClient);
+    setSelectedClientId(data?.id);
+  }
+
   const { control, setValue, handleSubmit } = useForm<FormDataProps>({
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => {
+    fetchClientId();
+  }, [selectedClient]);
 
   function handleSearch() {
     const client = clients.find((client) => client.name === selectedClient);
@@ -93,12 +106,10 @@ export function Client() {
     if (!selectedClient) {
       return;
     }
-    try {
-      const client = clients.find((item) => item.name === selectedClient);
-      const clientId = client?.id;
 
+    try {
       const newClient = {
-        id: clientId,
+        id: selectedClientId,
         name: data.name,
         cpf: data.cpf,
         rg: data.rg,
@@ -113,9 +124,8 @@ export function Client() {
         status: selectedStatus,
       };
 
-      await api.put(`/clients/${clientId}`, newClient);
-
-      console.log(clientId);
+      await api.put(`/clients/${selectedClientId}`, newClient);
+      await fetchClients();
     } catch (error) {
       console.log(error);
     }

@@ -12,16 +12,16 @@
       "nationality": "Brasileiro",
       "uf": "CE",
       "city": "Fortaleza",
-      "status": "Solteiro",
-      "gender": "Masculino"
+      "gender": "Masculino",
+      "status": "Solteiro"
     },
     {
       "id": "10op-56fX-12mk",
-      "name": "Maria Rita",
-      "cpf": "187.234.912-01",
-      "rg": "7607702495654",
+      "name": "Maria Hill",
+      "cpf": "187.234.912-02",
+      "rg": "8607702495654",
       "oe": "SSP",
-      "phone": "(88) 33333-4117",
+      "phone": "(88) 33333-4118",
       "cellphone": "(88) 9999-1239",
       "birth_date": "12/10/1996",
       "nationality": "Brasileiro",
@@ -47,8 +47,8 @@
     },
     {
       "id": "ghB7-g76H-11Lp",
-      "name": "Beatriz Sousa",
-      "cpf": "675.556.111-09",
+      "name": "Beatriz Santana",
+      "cpf": "675.556.111-08",
       "rg": "2012934895654",
       "oe": "SSP",
       "phone": "(31) 5678-1122",
@@ -57,8 +57,8 @@
       "nationality": "Brasileiro",
       "uf": "MG",
       "city": "Belo Horizonte",
-      "status": "Solteiro",
-      "gender": "Feminino"
+      "gender": "Feminino",
+      "status": "Solteiro"
     }
   ]
 }
