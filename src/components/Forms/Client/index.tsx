@@ -2,11 +2,11 @@
 import { ChangeEvent, useState } from "react";
 
 import { Button } from "@/components/Button";
+import { genders, marital_status } from "@/utils/data";
+import { api } from "@/services/api";
 
 import { useSales } from "@/hooks/useSales";
 import { useIBGE } from "@/hooks/useIBGE";
-
-import { genders, marital_status } from "@/utils/data";
 
 import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
@@ -55,7 +55,7 @@ const schema = yup.object({
 });
 
 export function Client() {
-  const { clients } = useSales();
+  const { clients, fetchClients } = useSales();
   const { ufs, cities, ufSelected, setSelectedUf } = useIBGE();
 
   const [selectedClient, setSelectedClient] = useState<string | null>(null);
@@ -63,7 +63,7 @@ export function Client() {
   const [selectedGender, setSelectedGender] = useState<string>("default");
   const [selectedStatus, setSelectedStatus] = useState<string>("default");
 
-  const { control, handleSubmit, setValue } = useForm<FormDataProps>({
+  const { control, setValue, handleSubmit } = useForm<FormDataProps>({
     resolver: yupResolver(schema),
   });
 
@@ -77,7 +77,6 @@ export function Client() {
       setValue("oe", client.oe);
       setValue("phone", client.phone);
       setValue("cellphone", client.cellphone);
-      setValue("phone", client.phone);
       setValue("birth_date", client.birth_date);
       setValue("nationality", client.nationality);
 
@@ -85,8 +84,40 @@ export function Client() {
       setSelectedUf(client.uf);
       setSelectedGender(client.gender);
       setSelectedStatus(client.status);
+    }
 
-      console.log(client.uf);
+    return;
+  }
+
+  async function handleUpdate(data: FormDataProps) {
+    if (!selectedClient) {
+      return;
+    }
+    try {
+      const client = clients.find((item) => item.name === selectedClient);
+      const clientId = client?.id;
+
+      const newClient = {
+        id: clientId,
+        name: data.name,
+        cpf: data.cpf,
+        rg: data.rg,
+        oe: data.oe,
+        phone: data.phone,
+        cellphone: data.cellphone,
+        birth_date: data.birth_date,
+        nationality: data.nationality,
+        uf: ufSelected,
+        city: selectedCity,
+        gender: selectedGender,
+        status: selectedStatus,
+      };
+
+      await api.put(`/clients/${clientId}`, newClient);
+
+      console.log(clientId);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -341,7 +372,12 @@ export function Client() {
         </Section>
         <Divider />
 
-        <Button title="Atualizar" model="default" />
+        <Button
+          title="Atualizar"
+          model="default"
+          disabled={!selectedClient}
+          onClick={handleSubmit(handleUpdate)}
+        />
         <Divider />
 
         <Footer>

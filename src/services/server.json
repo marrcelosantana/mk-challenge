@@ -14,24 +14,22 @@
       "city": "Fortaleza",
       "status": "Solteiro",
       "gender": "Masculino"
-    }, 
-
+    },
     {
       "id": "10op-56fX-12mk",
       "name": "Maria Rita",
-      "cpf": "667.234.912-01",
-      "rg": "2007702495654",
+      "cpf": "187.234.912-01",
+      "rg": "7607702495654",
       "oe": "SSP",
-      "phone": "(88) 3434-4117",
-      "cellphone": "(88) 8818-1239",
-      "birth_date": "12/10/1995",
+      "phone": "(88) 33333-4117",
+      "cellphone": "(88) 9999-1239",
+      "birth_date": "12/10/1996",
       "nationality": "Brasileiro",
       "uf": "CE",
-      "city": "Quixadá",
-      "status": "Casado",
-      "gender": "Feminino"
-    }, 
-
+      "city": "Nova Russas",
+      "gender": "Indefinido",
+      "status": "Solteiro"
+    },
     {
       "id": "op91-l081-fu98",
       "name": "Carlos Albuquerque",
@@ -46,8 +44,7 @@
       "city": "Rio de Janeiro",
       "status": "Divorciado",
       "gender": "Masculino"
-    }, 
-
+    },
     {
       "id": "ghB7-g76H-11Lp",
       "name": "Beatriz Sousa",
@@ -63,6 +60,5 @@
       "status": "Solteiro",
       "gender": "Feminino"
     }
-
   ]
 }

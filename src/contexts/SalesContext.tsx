@@ -5,6 +5,7 @@ import { api } from "@/services/api";
 
 export type SalesContextDataProps = {
   clients: ClientDTO[];
+  fetchClients: () => Promise<void>;
 };
 
 type SalesContextProviderProps = {
@@ -32,7 +33,7 @@ export function SalesContextProvider({ children }: SalesContextProviderProps) {
   }, []);
 
   return (
-    <SalesContext.Provider value={{ clients }}>
+    <SalesContext.Provider value={{ clients, fetchClients }}>
       {children}
     </SalesContext.Provider>
   );
