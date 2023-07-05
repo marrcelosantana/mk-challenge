@@ -1,13 +1,11 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/Button";
+
 import { useSales } from "@/hooks/useSales";
+import { useIBGE } from "@/hooks/useIBGE";
 
 import { genders, marital_status } from "@/utils/data";
-import { api_IBGE } from "@/services/api";
-
-import { UFDTO } from "@/models/UFDTO";
-import { CityDTO } from "@/models/CityDTO";
 
 import {
   Actions,
@@ -31,42 +29,7 @@ import {
 
 export function Client() {
   const { clients } = useSales();
-
-  const [ufs, setUfs] = useState<UFDTO[]>([]);
-  const [cities, setCities] = useState<CityDTO[]>([]);
-  const [ufSelected, setSelectedUf] = useState("0");
-
-  async function fetchUfs() {
-    try {
-      const response = await api_IBGE.get("/estados");
-      setUfs(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function fetchCities() {
-    if (ufSelected === "0") {
-      return;
-    }
-
-    try {
-      const response = await api_IBGE.get(`/estados/${ufSelected}/municipios`);
-      setCities(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
-    const uf = event.target.value;
-    setSelectedUf(uf);
-  }
-
-  useEffect(() => {
-    fetchUfs();
-    fetchCities();
-  }, [ufSelected]);
+  const { ufs, cities, handleSelectUf } = useIBGE();
 
   return (
     <Container>
