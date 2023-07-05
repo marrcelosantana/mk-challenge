@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Subtotal } from "@/components/Subtotal";
 import { Menu } from "@/components/Menu";
 import { Client } from "@/components/Forms/Client";
+import { File } from "@/components/Forms/File";
 
 import {
   Column,
@@ -31,6 +32,7 @@ export function Home() {
           <Subtotal />
 
           <Client />
+          {/* <File /> */}
         </FormContainer>
       </Content>
     </Container>

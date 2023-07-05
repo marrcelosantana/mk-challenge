@@ -5,6 +5,7 @@ import {
   BackLink,
   Container,
   Divider,
+  FirstSubSection,
   Footer,
   Input,
   InputContainer,
@@ -40,10 +41,12 @@ export function Client() {
       <Divider />
 
       <Section>
-        <InputContainer>
-          <Label>Nome completo</Label>
-          <Input style={{ width: "60%" }} placeholder="Nome" />
-        </InputContainer>
+        <FirstSubSection>
+          <InputContainer>
+            <Label>Nome completo</Label>
+            <Input style={{ width: "60%" }} placeholder="Nome" />
+          </InputContainer>
+        </FirstSubSection>
 
         <SubSection>
           <InputContainer>
@@ -110,7 +113,7 @@ export function Client() {
       <Section>
         <InputContainer>
           <Label>Estado civil</Label>
-          <Select style={{ width: "25%" }}>
+          <Select>
             <option selected disabled>
               Selecione o estado civil...
             </option>
@@ -119,7 +122,7 @@ export function Client() {
 
         <InputContainer>
           <Label>Sexo</Label>
-          <Select style={{ width: "25%" }}>
+          <Select>
             <option selected disabled>
               Selecione o sexo...
             </option>

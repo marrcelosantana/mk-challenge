@@ -14,12 +14,22 @@ export const Content = styled.div`
 export const Column = styled.div`
   width: 25%;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+  min-height: 100vh;
+
+  @media (max-width: 414px) {
+    width: 10%;
+  }
 `;
 
 export const FormContainer = styled.div`
   width: 65%;
   padding: 46px 42px 66px 30px;
   margin-top: 80px;
+
+  @media (max-width: 414px) {
+    width: 100%;
+    padding: 30px 30px 50px 20px;
+  }
 `;
 
 export const Titles = styled.div`

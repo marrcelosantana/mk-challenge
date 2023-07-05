@@ -9,6 +9,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 32px;
+
+  @media (max-width: 414px) {
+    height: 2.5rem;
+  }
 `;
 
 export const Info = styled.div`
@@ -21,6 +25,11 @@ export const Info = styled.div`
   justify-content: space-between;
   flex-direction: row;
   padding: 0 32px;
+
+  @media (max-width: 414px) {
+    width: 50%;
+    padding: 0 10px;
+  }
 `;
 
 export const Titles = styled.div`
@@ -35,10 +44,18 @@ export const Title = styled.p`
   font-size: 16px;
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.WHITE};
+
+  @media (max-width: 414px) {
+    font-size: 10px;
+  }
 `;
 
 export const Amount = styled.p`
   font-size: 20px;
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.GREEN};
+
+  @media (max-width: 414px) {
+    font-size: 10px;
+  }
 `;

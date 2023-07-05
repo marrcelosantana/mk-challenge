@@ -36,6 +36,30 @@ export const Actions = styled.div`
   display: flex;
   flex: 1;
   gap: 20px;
+
+  @media (max-width: 414px) {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+`;
+
+export const FirstSubSection = styled.div`
+  width: 100%;
+
+  @media (max-width: 414px) {
+    width: 100% !important;
+
+    div {
+      width: 100% !important;
+    }
+    input {
+      width: 100% !important;
+    }
+  }
 `;
 
 export const Select = styled.select`
@@ -49,6 +73,11 @@ export const Select = styled.select`
   border-color: ${({ theme }) => theme.COLORS.LIGHT_GRAY};
   color: ${({ theme }) => theme.COLORS.DARK_GREEN};
   font-size: 13px;
+
+  @media (max-width: 414px) {
+    width: 100%;
+    font-size: 10px;
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -91,10 +120,16 @@ export const Input = styled.input`
   gap: 10px;
   border-radius: 5px;
   font-size: 12px;
+
+  @media (max-width: 414px) {
+    width: 100%;
+    font-size: 10px;
+  }
 `;
 
 export const InputContainer = styled.div`
   margin-bottom: 10px;
+  width: 100%;
 `;
 
 export const SubSection = styled.div`
@@ -102,8 +137,17 @@ export const SubSection = styled.div`
   display: flex;
   margin-top: 10px;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
+
+  @media (max-width: 414px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+    input {
+      width: 100% !important;
+    }
+  }
 `;
 
 export const Footer = styled.div`
