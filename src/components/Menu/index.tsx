@@ -12,7 +12,7 @@ export function Menu() {
   return (
     <Container>
       {options.map((option, index) => (
-        <Option>
+        <Option key={index}>
           <OptionNumber>{index + 1}</OptionNumber>
           <OptionName>{option}</OptionName>
         </Option>

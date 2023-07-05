@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { useClient } from "@/hooks/useClient";
 
 import {
   Actions,
@@ -20,6 +21,8 @@ import {
 } from "./styles";
 
 export function Client() {
+  const { clients } = useClient();
+
   return (
     <Container>
       <Section>
@@ -32,6 +35,9 @@ export function Client() {
             <option selected disabled>
               Selecione uma pessoa...
             </option>
+            {clients.map((client) => (
+              <option>{client.name}</option>
+            ))}
           </Select>
 
           <SearchButton>Buscar</SearchButton>

@@ -1,0 +1,67 @@
+{
+  "clients": [
+    {
+      "id": "90XC-SUBX-00IO",
+      "name": "Jhoe Doe",
+      "cpf": "234.556.999-09",
+      "rg": "2009909895678",
+      "oe": "SSP",
+      "phone": "(85) 2234-4567",
+      "cell_phone": "(85) 8888-4829",
+      "birth_date": "19/01/2000",
+      "nationality": "Brasileiro",
+      "birth_state": "Ceará",
+      "birth_city": "Fortaleza",
+      "marital_status": "Solteiro",
+      "gender": "Masculino"
+    }, 
+
+    {"id": "10op-56fX-12mk",
+      "name": "Maria Rita",
+      "cpf": "667.234.912-01",
+      "rg": "2007702495654",
+      "oe": "SSP",
+      "phone": "(88) 3434-4117",
+      "cell_phone": "(88) 8818-1239",
+      "birth_date": "12/10/1995",
+      "nationality": "Brasileiro",
+      "birth_state": "Ceará",
+      "birth_city": "Quixadá",
+      "marital_status": "Casado",
+      "gender": "Feminino"
+    }, 
+
+    {
+      "id": "op91-l081-fu98",
+      "name": "Carlos Albuquerque",
+      "cpf": "111.522.943-11",
+      "rg": "29900098956111",
+      "oe": "SSP",
+      "phone": "(21) 1234-4098",
+      "cell_phone": "(21) 2323-1122",
+      "birth_date": "21/02/1992",
+      "nationality": "Brasileiro",
+      "birth_state": "Rio De Janeiro",
+      "birth_city": "Rio de Janeiro",
+      "marital_status": "Divorciado",
+      "gender": "Masculino"
+    }, 
+
+    {
+      "id": "ghB7-g76H-11Lp",
+      "name": "Beatriz Sousa",
+      "cpf": "675.556.111-09",
+      "rg": "2012934895654",
+      "oe": "SSP",
+      "phone": "(31) 5678-1122",
+      "cell_phone": "(31) 8888-3412",
+      "birth_date": "11/05/2002",
+      "nationality": "Brasileiro",
+      "birth_state": "Minas Gerais",
+      "birth_city": "Belo Horizonte",
+      "marital_status": "Solteiro",
+      "gender": "Feminino"
+    }
+
+  ]
+}

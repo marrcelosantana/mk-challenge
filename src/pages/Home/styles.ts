@@ -28,7 +28,7 @@ export const FormContainer = styled.div`
 
   @media (max-width: 414px) {
     width: 100%;
-    padding: 30px 30px 50px 20px;
+    padding: 30px 20px 50px 20px;
   }
 
   @media (max-width: 920px) {
