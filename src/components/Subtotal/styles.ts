@@ -13,11 +13,6 @@ export const Container = styled.div`
   @media (max-width: 414px) {
     height: 2.5rem;
   }
-
-  @media (max-width: 920px) {
-    width: 100%;
-    height: 3rem;
-  }
 `;
 
 export const Info = styled.div`

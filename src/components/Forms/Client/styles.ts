@@ -7,6 +7,8 @@ export const Container = styled.div`
   padding: 20px 29px;
 `;
 
+export const Form = styled.form``;
+
 export const Section = styled.div``;
 
 export const Title = styled.p`
