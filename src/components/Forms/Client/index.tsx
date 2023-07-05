@@ -1,5 +1,13 @@
+import { ChangeEvent, useEffect, useState } from "react";
+
 import { Button } from "@/components/Button";
-import { useClient } from "@/hooks/useClient";
+import { useSales } from "@/hooks/useSales";
+
+import { genders, marital_status } from "@/utils/data";
+import { api_IBGE } from "@/services/api";
+
+import { UFDTO } from "@/models/UFDTO";
+import { CityDTO } from "@/models/CityDTO";
 
 import {
   Actions,
@@ -21,7 +29,43 @@ import {
 } from "./styles";
 
 export function Client() {
-  const { clients } = useClient();
+  const { clients } = useSales();
+
+  const [ufs, setUfs] = useState<UFDTO[]>([]);
+  const [cities, setCities] = useState<CityDTO[]>([]);
+  const [ufSelected, setSelectedUf] = useState("0");
+
+  async function fetchUfs() {
+    try {
+      const response = await api_IBGE.get("/estados");
+      setUfs(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchCities() {
+    if (ufSelected === "0") {
+      return;
+    }
+
+    try {
+      const response = await api_IBGE.get(`/estados/${ufSelected}/municipios`);
+      setCities(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
+    const uf = event.target.value;
+    setSelectedUf(uf);
+  }
+
+  useEffect(() => {
+    fetchUfs();
+    fetchCities();
+  }, [ufSelected]);
 
   return (
     <Container>
@@ -36,7 +80,7 @@ export function Client() {
               Selecione uma pessoa...
             </option>
             {clients.map((client) => (
-              <option>{client.name}</option>
+              <option key={client.id}>{client.name}</option>
             ))}
           </Select>
 
@@ -98,19 +142,29 @@ export function Client() {
 
         <InputContainer>
           <Label>Estado de nascimento</Label>
-          <Select>
-            <option selected disabled>
+          <Select onChange={handleSelectUf}>
+            <option selected disabled value="default-uf">
               Selecione a estado de nascimento...
             </option>
+            {ufs.map((uf) => (
+              <option key={uf.id} value={uf.sigla}>
+                {uf.nome}
+              </option>
+            ))}
           </Select>
         </InputContainer>
 
         <InputContainer>
           <Label>Naturalidade (Cidade de nascimento)</Label>
           <Select>
-            <option selected disabled>
-              Selecione a naturalidade...
+            <option selected disabled value="default-city">
+              Selecione a cidade...
             </option>
+            {cities.map((city) => (
+              <option key={city.id} value={city.nome}>
+                {city.nome}
+              </option>
+            ))}
           </Select>
         </InputContainer>
       </Section>
@@ -120,18 +174,28 @@ export function Client() {
         <InputContainer>
           <Label>Estado civil</Label>
           <Select>
-            <option selected disabled>
+            <option selected disabled defaultValue="default">
               Selecione o estado civil...
             </option>
+            {marital_status.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
           </Select>
         </InputContainer>
 
         <InputContainer>
           <Label>Sexo</Label>
           <Select>
-            <option selected disabled>
+            <option selected disabled defaultValue="default">
               Selecione o sexo...
             </option>
+            {genders.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
           </Select>
         </InputContainer>
       </Section>

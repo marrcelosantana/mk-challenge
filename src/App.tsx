@@ -4,16 +4,16 @@ import { defaultTheme } from "./styles/themes/default-theme";
 import { GlobalStyle } from "./styles/global";
 
 import { Home } from "@/pages/Home";
-import { ClientContextProvider } from "@/contexts/ClientContext";
+import { SalesContextProvider } from "./contexts/SalesContext";
 
 function App() {
   return (
-    <ClientContextProvider>
+    <SalesContextProvider>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
         <Home />
       </ThemeProvider>
-    </ClientContextProvider>
+    </SalesContextProvider>
   );
 }
 export default App;

@@ -3,28 +3,25 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { ClientDTO } from "@/models/ClientDTO";
 import { api } from "@/services/api";
 
-export type ClientContextDataProps = {
+export type SalesContextDataProps = {
   clients: ClientDTO[];
 };
 
-type ClientContextProviderProps = {
+type SalesContextProviderProps = {
   children: ReactNode;
 };
 
-export const ClientContext = createContext<ClientContextDataProps>(
-  {} as ClientContextDataProps
+export const SalesContext = createContext<SalesContextDataProps>(
+  {} as SalesContextDataProps
 );
 
-export function ClientContextProvider({
-  children,
-}: ClientContextProviderProps) {
+export function SalesContextProvider({ children }: SalesContextProviderProps) {
   const [clients, setClients] = useState<ClientDTO[]>([]);
 
   async function fetchClients() {
     try {
       const response = await api.get("/clients");
       setClients(response.data);
-      console.log(clients);
     } catch (error) {
       console.log(error);
     }
@@ -35,8 +32,8 @@ export function ClientContextProvider({
   }, []);
 
   return (
-    <ClientContext.Provider value={{ clients }}>
+    <SalesContext.Provider value={{ clients }}>
       {children}
-    </ClientContext.Provider>
+    </SalesContext.Provider>
   );
 }
