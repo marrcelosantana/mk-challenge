@@ -7,13 +7,13 @@ export type ClientDTO = {
   oe: string;
 
   phone: string;
-  cell_phone?: string;
+  cellphone?: string;
 
   birth_date: string;
-  birth_state: string;
-  birth_city: string;
+  uf: string;
+  city: string;
 
   nationality: string;
-  marital_status: string;
+  status: string;
   gender: string;
 };

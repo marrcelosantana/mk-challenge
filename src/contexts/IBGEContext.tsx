@@ -14,6 +14,8 @@ import { api_IBGE } from "@/services/api";
 export type IBGEContextDataProps = {
   ufs: UFDTO[];
   cities: CityDTO[];
+  ufSelected: string;
+  setSelectedUf: (uf: string) => void;
   handleSelectUf: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
@@ -28,7 +30,7 @@ export const IBGEContext = createContext<IBGEContextDataProps>(
 export function IBGEContextProvider({ children }: IBGEContextProviderProps) {
   const [ufs, setUfs] = useState<UFDTO[]>([]);
   const [cities, setCities] = useState<CityDTO[]>([]);
-  const [ufSelected, setSelectedUf] = useState("0");
+  const [ufSelected, setSelectedUf] = useState("default");
 
   async function fetchUfs() {
     try {
@@ -40,7 +42,7 @@ export function IBGEContextProvider({ children }: IBGEContextProviderProps) {
   }
 
   async function fetchCities() {
-    if (ufSelected === "0") {
+    if (ufSelected === "default") {
       return;
     }
 
@@ -63,7 +65,9 @@ export function IBGEContextProvider({ children }: IBGEContextProviderProps) {
   }, [ufSelected]);
 
   return (
-    <IBGEContext.Provider value={{ ufs, cities, handleSelectUf }}>
+    <IBGEContext.Provider
+      value={{ ufs, cities, ufSelected, setSelectedUf, handleSelectUf }}
+    >
       {children}
     </IBGEContext.Provider>
   );
