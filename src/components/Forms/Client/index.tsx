@@ -60,7 +60,7 @@ export function Client() {
   const { clients, fetchClients } = useSales();
   const { ufs, cities, ufSelected, setSelectedUf } = useIBGE();
 
-  const [selectedClient, setSelectedClient] = useState<string | null>(null);
+  const [selectedClient, setSelectedClient] = useState<string>("default");
   const [selectedClientId, setSelectedClientId] = useState<string | undefined>(
     ""
   );
@@ -133,7 +133,7 @@ export function Client() {
         duration: 3000,
       });
 
-      reset();
+      clear();
     } catch (error) {
       toast.error("Não foi possivel adicionar cliente!", {
         duration: 3000,
@@ -176,7 +176,7 @@ export function Client() {
     }
   }
 
-  function handleChangeMode() {
+  function clear() {
     reset({
       name: "",
       cpf: "",
@@ -188,13 +188,11 @@ export function Client() {
       oe: "",
     });
 
-    setSelectedClient(null);
+    setSelectedClient("default");
     setSelectedCity("default");
     setSelectedUf("default");
     setSelectedGender("default");
     setSelectedStatus("default");
-
-    setCreateMode(true);
   }
 
   return (
@@ -211,8 +209,9 @@ export function Client() {
             onChange={(e: ChangeEvent<HTMLSelectElement>) =>
               setSelectedClient(e.target.value)
             }
+            value={selectedClient}
           >
-            <option selected disabled>
+            <option selected disabled value="default">
               Selecione uma pessoa...
             </option>
             {clients.map((client) => (
@@ -225,7 +224,8 @@ export function Client() {
             title="Adcionar pessoas"
             model="primary"
             onClick={() => {
-              handleChangeMode();
+              clear();
+              setCreateMode(true);
             }}
           />
         </Actions>
