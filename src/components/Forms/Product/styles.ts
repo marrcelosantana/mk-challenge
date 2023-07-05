@@ -81,6 +81,7 @@ export const Label = styled.p`
 `;
 
 export const Input = styled.input`
+  height: 32px;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_GRAY};
   padding: 5px 14px;
@@ -89,6 +90,7 @@ export const Input = styled.input`
   justify-content: flex-start;
   gap: 10px;
   border-radius: 5px;
+  font-size: 12px;
 `;
 
 export const InputContainer = styled.div`

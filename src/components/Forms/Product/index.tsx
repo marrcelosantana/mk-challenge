@@ -42,35 +42,35 @@ export function Product() {
       <Section>
         <InputContainer>
           <Label>Nome completo</Label>
-          <Input style={{ width: "60%" }} />
+          <Input style={{ width: "60%" }} placeholder="Nome" />
         </InputContainer>
 
         <SubSection>
           <InputContainer>
             <Label>CPF</Label>
-            <Input style={{ width: 149 }} />
+            <Input style={{ width: 149 }} placeholder="CPF" />
           </InputContainer>
 
           <InputContainer>
             <Label>IE/RG</Label>
-            <Input style={{ width: 128 }} />
+            <Input style={{ width: 128 }} placeholder="IE ou RG" />
           </InputContainer>
 
           <InputContainer>
             <Label>Órgão emissor</Label>
-            <Input style={{ width: 107 }} />
+            <Input style={{ width: 107 }} placeholder="OE" />
           </InputContainer>
         </SubSection>
 
         <SubSection>
           <InputContainer>
             <Label>Telefone</Label>
-            <Input />
+            <Input placeholder="(00) 0000 0000" />
           </InputContainer>
 
           <InputContainer>
             <Label>Celular</Label>
-            <Input />
+            <Input placeholder="(00) 0000 0000" />
           </InputContainer>
         </SubSection>
       </Section>
@@ -79,12 +79,12 @@ export function Product() {
       <Section>
         <InputContainer>
           <Label>Data de nascimento</Label>
-          <Input />
+          <Input placeholder="00/00/00" />
         </InputContainer>
 
         <InputContainer>
           <Label>Nacionalidade</Label>
-          <Input />
+          <Input placeholder="Nacionalidade" />
         </InputContainer>
 
         <InputContainer>
