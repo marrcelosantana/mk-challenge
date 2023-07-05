@@ -13,6 +13,11 @@ export const Container = styled.div`
   @media (max-width: 414px) {
     height: 2.5rem;
   }
+
+  @media (max-width: 920px) {
+    width: 100%;
+    height: 3rem;
+  }
 `;
 
 export const Info = styled.div`
@@ -51,7 +56,7 @@ export const Title = styled.p`
 `;
 
 export const Amount = styled.p`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.GREEN};
 

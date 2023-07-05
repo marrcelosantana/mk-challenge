@@ -30,6 +30,16 @@ export const FormContainer = styled.div`
     width: 100%;
     padding: 30px 30px 50px 20px;
   }
+
+  @media (max-width: 920px) {
+    width: 100%;
+    padding: 36px 32px 56px 32px;
+  }
+
+  @media (min-width: 1444px) {
+    width: 100%;
+    padding: 46px 42px 66px 30px;
+  }
 `;
 
 export const Titles = styled.div`
