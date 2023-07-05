@@ -7,6 +7,7 @@ export const defaultTheme = {
     GREEN: "#63d391",
     DARK_GREEN: "#205266",
 
-    GRAY_DISABLED: "#C6D5DB",
+    LIGHT_GRAY: "#C6D5DB",
+    GRAY_100: "#F3F3F3",
   },
 };

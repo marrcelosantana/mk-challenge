@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus{
     outline:0;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.GRAY_DISABLED};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.COLORS.GREEN};
   }
 
   html, body {
@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     &:disabled {
-      background-color: ${({ theme }) => theme.COLORS.GRAY_DISABLED};
+      background-color: ${({ theme }) => theme.COLORS.LIGHT_GRAY};
     }
   }
 

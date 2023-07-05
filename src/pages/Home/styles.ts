@@ -13,7 +13,6 @@ export const Content = styled.div`
 
 export const Column = styled.div`
   width: 25%;
-  height: 100vh;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
