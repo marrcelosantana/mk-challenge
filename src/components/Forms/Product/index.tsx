@@ -48,7 +48,7 @@ export function Product() {
         <SubSection>
           <InputContainer>
             <Label>CPF</Label>
-            <Input style={{ width: 149 }} placeholder="CPF" />
+            <Input style={{ width: 149 }} placeholder="000.000.000-00 " />
           </InputContainer>
 
           <InputContainer>
@@ -65,12 +65,12 @@ export function Product() {
         <SubSection>
           <InputContainer>
             <Label>Telefone</Label>
-            <Input placeholder="(00) 0000 0000" />
+            <Input placeholder="(00) 0000-0000" />
           </InputContainer>
 
           <InputContainer>
             <Label>Celular</Label>
-            <Input placeholder="(00) 0000 0000" />
+            <Input placeholder="(00) 0000-0000" />
           </InputContainer>
         </SubSection>
       </Section>

@@ -120,4 +120,5 @@ export const BackLink = styled.a`
   font-weight: 700;
   line-height: normal;
   text-decoration-line: underline;
+  cursor: pointer;
 `;
