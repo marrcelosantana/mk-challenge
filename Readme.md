@@ -59,6 +59,6 @@ Link: https://youtu.be/jBtKJQ2YIu4
 
 ### Responsividade
 
-|                    Login                    |                Dashboard                 |
+|                   Cliente                   |                 Arquivos                 |
 | :-----------------------------------------: | :--------------------------------------: |
 | <img src= "public/screenshots/client.png" > | <img src= "public/screenshots/file.png"> |

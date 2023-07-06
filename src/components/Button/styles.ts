@@ -15,14 +15,15 @@ export const Container = styled.button<ModelButton>`
   font-weight: 700;
 
   border-width: ${({ model }) => (model === "default" ? "0.5px" : 0)};
-  border-color: #205266;
+  border-color: ${({ theme }) => theme.COLORS.DARK_GREEN};
 
-  background-color: ${({ model }) =>
+  background-color: ${({ theme, model }) =>
     model === "primary"
-      ? "#4B8DB5"
+      ? theme.COLORS.DARK_BLUE
       : model === "secondary"
-      ? "#63d391"
-      : "#FFF"};
+      ? theme.COLORS.GREEN
+      : theme.COLORS.WHITE};
 
-  color: ${({ model }) => (model === "default" ? "#205266" : "#FFF")};
+  color: ${({ theme, model }) =>
+    model === "default" ? theme.COLORS.DARK_GREEN : theme.COLORS.WHITE};
 `;

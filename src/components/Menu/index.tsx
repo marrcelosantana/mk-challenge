@@ -8,7 +8,7 @@ export function Menu() {
   const [selectedOption, setSelectedOption] = useState("client");
 
   return (
-    <Container>
+    <Container data-testid="navlink-testId">
       <Option to="/product" onClick={() => setSelectedOption("product")}>
         <OptionNumber>1</OptionNumber>
         <OptionName option="product" selectedOption={selectedOption}>
