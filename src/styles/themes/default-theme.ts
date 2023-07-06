@@ -9,5 +9,6 @@ export const defaultTheme = {
 
     LIGHT_GRAY: "#C6D5DB",
     GRAY_100: "#F3F3F3",
+    PINK: "#E8225F",
   },
 };

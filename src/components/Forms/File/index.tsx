@@ -5,6 +5,9 @@ import { useDropzone } from "react-dropzone";
 import { ArrowCircleDown, ArrowCircleUp, Trash } from "@phosphor-icons/react";
 
 import { Button } from "@/components/Button";
+import { RemoveModal } from "@/components/RemoveModal";
+
+import * as Dialog from "@radix-ui/react-dialog";
 
 import {
   Container,
@@ -51,12 +54,13 @@ export function File() {
   });
 
   const [files, setFiles] = useState<any[]>([]);
-
+  const [openModal, setOpenModal] = useState(false);
   const theme = useTheme();
 
   function removeFile(name: string) {
     const newArray = files.filter((file) => file.name !== name);
     setFiles(newArray);
+    setOpenModal(false);
   }
 
   return (
@@ -77,11 +81,22 @@ export function File() {
 
             <PreviewActions>
               <ArrowCircleDown size={20} color={theme.COLORS.DARK_BLUE} />
-              <Trash
-                size={20}
-                color="#F92828"
-                onClick={() => removeFile(file.name)}
-              />
+
+              <Dialog.Root open={openModal} onOpenChange={setOpenModal}>
+                <Dialog.Trigger asChild>
+                  <Trash
+                    size={20}
+                    color="#F92828"
+                    onClick={() => setOpenModal(true)}
+                  />
+                </Dialog.Trigger>
+
+                <RemoveModal
+                  file={file}
+                  setOpenModal={setOpenModal}
+                  handleRemoveFile={removeFile}
+                />
+              </Dialog.Root>
             </PreviewActions>
           </Preview>
         ))}
