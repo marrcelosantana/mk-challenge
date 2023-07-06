@@ -3,7 +3,7 @@ import { useTheme } from "styled-components";
 import Logo from "@/assets/logo.svg";
 import { Bell, User } from "@phosphor-icons/react";
 
-import { Actions, Button, Container, Flag, Flags, Image } from "./styles";
+import { Actions, Button, Container, Image } from "./styles";
 
 export function Header() {
   const theme = useTheme();

@@ -23,19 +23,6 @@ export const Actions = styled.div`
   gap: 20px;
 `;
 
-export const Flags = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-`;
-
-export const Flag = styled.img`
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-`;
-
 export const Button = styled.button`
   width: 36px;
   height: 36px;
