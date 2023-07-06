@@ -14,7 +14,7 @@ export const Container = styled.div`
   margin-bottom: 32px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
   @media (max-width: 414px) {
     height: 3.125rem;
@@ -68,9 +68,4 @@ export const OptionName = styled.p<OptionProps>`
   @media (max-width: 414px) {
     font-size: 9px;
   }
-`;
-
-export const Button = styled.button`
-  background: none;
-  border: 0;
 `;
