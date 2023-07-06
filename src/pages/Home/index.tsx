@@ -21,7 +21,7 @@ import {
 } from "./styles";
 
 export function Home() {
-  const tabs = [
+  const options = [
     "Produto",
     "Cliente",
     "Anexar Arquivo",
@@ -31,7 +31,7 @@ export function Home() {
 
   const status = ["InProgress", "Done"];
 
-  const [tabSelected, setTabSelected] = useState("Cliente");
+  const [optionSelected, setOptionSelected] = useState("Cliente");
 
   return (
     <Container>
@@ -47,17 +47,21 @@ export function Home() {
           </Titles>
 
           <Menu>
-            {tabs.map((tab, index) => (
-              <Option key={index + 1} onClick={() => setTabSelected(tab)}>
+            {options.map((option, index) => (
+              <Option
+                key={index + 1}
+                onClick={() => setOptionSelected(option)}
+                option={option}
+              >
                 <OptionNumber>{index + 1}</OptionNumber>
-                <OptionName>{tab}</OptionName>
+                <OptionName>{option}</OptionName>
               </Option>
             ))}
           </Menu>
           <Subtotal />
 
-          {tabSelected === "Cliente" && <Client></Client>}
-          {tabSelected === "Anexar Arquivo" && <File></File>}
+          {optionSelected === "Cliente" && <Client></Client>}
+          {optionSelected === "Anexar Arquivo" && <File></File>}
         </FormContainer>
       </Content>
     </Container>

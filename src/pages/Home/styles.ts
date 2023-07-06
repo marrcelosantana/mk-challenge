@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type OptionProps = {
+  option: string;
+};
+
 export const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -77,7 +81,7 @@ export const Menu = styled.div`
   }
 `;
 
-export const Option = styled.div`
+export const Option = styled.div<OptionProps>`
   width: 20%;
   height: 57px;
   border-radius: 0 20px 20px 0;
