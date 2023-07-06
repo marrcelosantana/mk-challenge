@@ -3,7 +3,7 @@
   "Nova venda": "New sale",
   "Produto": "Product",
   "Cliente": "Client",
-  "Anexar Arquivo": "Attach File",
+  "Anexar arquivo": "Attach file",
   "Pagamentos": "Payments",
   "Contrato": "Contract",
   "Subtotal": "Subtotal",
@@ -14,7 +14,6 @@
   "Órgão emissor": "Emitter agency",
   "Selecione uma pessoa...": "Select a person...",
   "Nome": "Name",
-  "oe": "EA",
   "ou": "or",
   "Telefone": "Phone",
   "Celular": "Cell phone",
@@ -24,7 +23,6 @@
   "Selecione o estado...": "Select a state...",
   "Selecione a cidade...": "Select a city...",
   "Naturalidade": "Nature",
-  "Naturalidade (Cidade de nascimento)" : "Nature (City of birth)",
   "Cidade de nascimento": "City of birth",
   "Estado civil": "Marital status",
   "Selecione o estado civil...": "Select a marital status",
@@ -41,5 +39,4 @@
   "Tem certeza que deseja excluir este arquivo?": "Are you sure you want to delete this file?",
   "As mudanças serão salvas e a ação não poderá ser desfeita.": "The changes will be saved and the action cannot be undone.",
   "Excluir": "Delete"
-
 }
