@@ -46,3 +46,7 @@ $ npm install
 $ npm run api
 
 ```
+
+### Link de uma video explicação sobre o sistema
+
+Link: https://youtu.be/jBtKJQ2YIu4
