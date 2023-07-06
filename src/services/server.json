@@ -2,7 +2,7 @@
   "clients": [
     {
       "id": "90XC-SUBX-00IO",
-      "name": "Jhoe Doe",
+      "name": "Jhoe Doe II",
       "cpf": "234.556.999-09",
       "rg": "2009909895678",
       "oe": "SSP",
@@ -103,6 +103,21 @@
       "uf": "RN",
       "city": "Campo Grande",
       "gender": "Masculino",
+      "status": "Solteiro"
+    },
+    {
+      "id": "76ffbcf6-7a6b-4a93-8d38-48851a5d01cc",
+      "name": "Maria Silva",
+      "cpf": "000.000.111-50",
+      "rg": "28470304",
+      "oe": "SSP",
+      "phone": "(88) 9999-00000",
+      "cellphone": "(88) 9999-00000",
+      "birth_date": "13/09/2001",
+      "nationality": "Brasileiro",
+      "uf": "CE",
+      "city": "Fortaleza",
+      "gender": "Feminino",
       "status": "Solteiro"
     }
   ]

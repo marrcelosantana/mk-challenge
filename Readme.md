@@ -16,6 +16,7 @@ Este é um projeto feito como desafio para a vaga de desenvolvedor front-end na 
 - [React Router](https://reactrouter.com/en/main)
 - [React Hook Form](https://react-hook-form.com/)
 - [React I18Next](https://react.i18next.com/)
+- [IBGE Api](https://servicodados.ibge.gov.br/api/docs)
 - [Jest](https://jestjs.io/pt-BR/)
 
 ### Como rodar a aplicação
