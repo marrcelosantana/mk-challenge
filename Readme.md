@@ -56,3 +56,9 @@ $ npm run api
 ### Link de uma video explicação sobre o sistema
 
 Link: https://youtu.be/jBtKJQ2YIu4
+
+### Responsividade
+
+|                    Login                    |                Dashboard                 |
+| :-----------------------------------------: | :--------------------------------------: |
+| <img src= "public/screenshots/client.png" > | <img src= "public/screenshots/file.png"> |
