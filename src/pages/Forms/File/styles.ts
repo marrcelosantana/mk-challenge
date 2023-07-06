@@ -224,3 +224,8 @@ export const PreviewActions = styled.div`
     cursor: pointer;
   }
 `;
+
+export const ButtonLink = styled.button`
+  border: 0;
+  background: none;
+`;

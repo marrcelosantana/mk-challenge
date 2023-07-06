@@ -14,6 +14,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { v4 as uuidv4 } from "uuid";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import {
   Actions,
@@ -73,6 +74,7 @@ export function Client() {
   const [createMode, setCreateMode] = useState(true);
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   function fetchClientId() {
     const data = clients.find((item) => item.name === selectedClient);
@@ -476,12 +478,15 @@ export function Client() {
           />
         )}
         <Divider />
+        <Footer>
+          <Button
+            title={t("Continuar")}
+            model="secondary"
+            onClick={handleSubmit(() => navigate("/file"))}
+          />
+          <BackLink>{t("Voltar")}</BackLink>
+        </Footer>
       </Form>
-
-      <Footer>
-        <Button title={t("Continuar")} model="secondary" />
-        <BackLink>{t("Voltar")}</BackLink>
-      </Footer>
     </Container>
   );
 }

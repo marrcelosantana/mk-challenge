@@ -7,8 +7,10 @@ import { ArrowCircleDown, ArrowCircleUp, Trash } from "@phosphor-icons/react";
 import { Button } from "@/components/Button";
 import { RemoveModal } from "@/components/RemoveModal";
 
-import { useTranslation } from "react-i18next";
 import * as Dialog from "@radix-ui/react-dialog";
+
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import {
   Container,
@@ -31,6 +33,7 @@ import {
   PreviewSubtitle,
   PreviewActions,
   Thumb,
+  ButtonLink,
 } from "./styles";
 
 export function File() {
@@ -59,6 +62,7 @@ export function File() {
   const theme = useTheme();
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   function removeFile(name: string) {
     const newArray = files.filter((file) => file.name !== name);
@@ -127,8 +131,10 @@ export function File() {
       <Divider />
 
       <Footer>
-        <Button title={t("Continuar")} model="secondary" />
-        <BackLink>{t("Voltar")}</BackLink>
+        <Button title={t("Continuar")} model="secondary" disabled />
+        <ButtonLink onClick={() => navigate("/")}>
+          <BackLink>{t("Voltar")}</BackLink>
+        </ButtonLink>
       </Footer>
     </Container>
   );
