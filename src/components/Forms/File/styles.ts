@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex: 1;
   border-radius: 20px;
   padding: 20px 29px;
-  min-height: 324px;
 
   @media (max-width: 414px) {
     padding: 14px;

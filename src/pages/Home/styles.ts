@@ -21,7 +21,7 @@ export const Column = styled.div`
   min-height: 100vh;
 
   @media (max-width: 414px) {
-    width: 10%;
+    display: none;
   }
 `;
 
