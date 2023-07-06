@@ -48,13 +48,11 @@ export function Home() {
 
           <Menu>
             {options.map((option, index) => (
-              <Option
-                key={index + 1}
-                onClick={() => setOptionSelected(option)}
-                option={option}
-              >
+              <Option key={index + 1} onClick={() => setOptionSelected(option)}>
                 <OptionNumber>{index + 1}</OptionNumber>
-                <OptionName>{option}</OptionName>
+                <OptionName option={option} optionSelected={optionSelected}>
+                  {option}
+                </OptionName>
               </Option>
             ))}
           </Menu>

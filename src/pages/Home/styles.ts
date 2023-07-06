@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type OptionProps = {
   option: string;
+  optionSelected: string;
 };
 
 export const Container = styled.div`
@@ -81,7 +82,7 @@ export const Menu = styled.div`
   }
 `;
 
-export const Option = styled.div<OptionProps>`
+export const Option = styled.div`
   width: 20%;
   height: 57px;
   border-radius: 0 20px 20px 0;
@@ -113,10 +114,13 @@ export const OptionNumber = styled.span`
   }
 `;
 
-export const OptionName = styled.p`
+export const OptionName = styled.p<OptionProps>`
   font-size: 14px;
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.DARK_GREEN};
+
+  text-decoration: ${({ option, optionSelected }) =>
+    option === optionSelected && "underline"};
 
   &:hover {
     text-decoration: underline;
