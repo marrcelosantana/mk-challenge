@@ -1,4 +1,10 @@
-<h1 style="text-align: center; font-weight: bold;">MK Next - Challenge</h1>
+<div>
+  <h1 style="text-align: center; font-weight: bold;">MK Next - Challenge</h1>
+  <img src="src/assets/logo.svg" height="100"  >
+</div>
+
+<br>
+<br>
 
 ## Sobre o Projeto
 
