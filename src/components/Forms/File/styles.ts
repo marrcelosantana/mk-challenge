@@ -166,6 +166,7 @@ export const Preview = styled.div`
   border-radius: 4px;
   outline: none;
   transition: border 0.24s ease-in-out;
+  margin-bottom: 12px;
 
   @media (max-width: 414px) {
     width: 100%;

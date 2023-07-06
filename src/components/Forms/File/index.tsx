@@ -81,19 +81,21 @@ export function File() {
             <ArrowCircleUp size={22} color={theme.COLORS.DARK_BLUE} />
           </Dropzone>
         ) : (
-          <Preview>
-            <PreviewInfo>
-              <PreviewTextContainer>
-                <PreviewTitle>{files[0].name}</PreviewTitle>
-                <PreviewSubtitle>{files[0].size} KB</PreviewSubtitle>
-              </PreviewTextContainer>
-            </PreviewInfo>
+          files.map((file) => (
+            <Preview>
+              <PreviewInfo>
+                <PreviewTextContainer>
+                  <PreviewTitle>{file.name}</PreviewTitle>
+                  <PreviewSubtitle>{file.size} KB</PreviewSubtitle>
+                </PreviewTextContainer>
+              </PreviewInfo>
 
-            <PreviewActions>
-              <ArrowCircleDown size={20} color={theme.COLORS.DARK_BLUE} />
-              <Trash size={20} color="#F92828" />
-            </PreviewActions>
-          </Preview>
+              <PreviewActions>
+                <ArrowCircleDown size={20} color={theme.COLORS.DARK_BLUE} />
+                <Trash size={20} color="#F92828" />
+              </PreviewActions>
+            </Preview>
+          ))
         )}
       </Section>
 
