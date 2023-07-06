@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
-// type OptionProps = {
-//   option: string;
-//   optionSelected: string;
-// };
+type OptionProps = {
+  option: string;
+  selectedOption: string;
+};
 
 export const Container = styled.div`
   width: 100%;
@@ -53,10 +53,13 @@ export const OptionNumber = styled.span`
   }
 `;
 
-export const OptionName = styled.p`
+export const OptionName = styled.p<OptionProps>`
   font-size: 14px;
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.DARK_GREEN};
+
+  text-decoration: ${({ option, selectedOption }) =>
+    option === selectedOption && "underline"};
 
   &:hover {
     text-decoration: underline;
@@ -65,4 +68,9 @@ export const OptionName = styled.p`
   @media (max-width: 414px) {
     font-size: 9px;
   }
+`;
+
+export const Button = styled.button`
+  background: none;
+  border: 0;
 `;
