@@ -6,6 +6,8 @@ import { Subtotal } from "@/components/Subtotal";
 import { Client } from "@/components/Forms/Client";
 import { File } from "@/components/Forms/File";
 
+import { useTranslation } from "react-i18next";
+
 import {
   Column,
   Container,
@@ -21,6 +23,7 @@ import {
 } from "./styles";
 
 export function Home() {
+  const { t } = useTranslation();
   const options = [
     "Produto",
     "Cliente",
@@ -28,8 +31,6 @@ export function Home() {
     "Pagamentos",
     "Contrato",
   ];
-
-  const status = ["InProgress", "Done"];
 
   const [optionSelected, setOptionSelected] = useState("Cliente");
 
@@ -42,8 +43,8 @@ export function Home() {
 
         <FormContainer>
           <Titles>
-            <Title>Vendas</Title>
-            <Subtitle>Nova venda</Subtitle>
+            <Title>{t("Vendas")}</Title>
+            <Subtitle>{t("Nova venda")}</Subtitle>
           </Titles>
 
           <Menu>

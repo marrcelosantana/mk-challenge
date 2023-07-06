@@ -13,6 +13,7 @@ import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { v4 as uuidv4 } from "uuid";
+import { useTranslation } from "react-i18next";
 
 import {
   Actions,
@@ -70,6 +71,8 @@ export function Client() {
   const [selectedStatus, setSelectedStatus] = useState<string>("default");
 
   const [createMode, setCreateMode] = useState(true);
+
+  const { t } = useTranslation();
 
   function fetchClientId() {
     const data = clients.find((item) => item.name === selectedClient);
@@ -200,9 +203,9 @@ export function Client() {
       <Toaster position="top-right" reverseOrder={false} />
 
       <Section>
-        <Title>Buscar cliente</Title>
+        <Title>{t("Buscar cliente")}</Title>
         <Line />
-        <Subtitle>Buscar cliente</Subtitle>
+        <Subtitle>{t("Buscar cliente")}</Subtitle>
 
         <Actions>
           <Select
@@ -212,16 +215,16 @@ export function Client() {
             value={selectedClient}
           >
             <option selected disabled value="default">
-              Selecione uma pessoa...
+              {t("Selecione uma pessoa...")}
             </option>
             {clients.map((client) => (
               <option key={client.id}>{client.name}</option>
             ))}
           </Select>
 
-          <SearchButton onClick={handleSearch}>Buscar</SearchButton>
+          <SearchButton onClick={handleSearch}>{t("Buscar")}</SearchButton>
           <Button
-            title="Adcionar pessoas"
+            title={t("Adicionar pessoas")}
             model="primary"
             onClick={() => {
               clear();
@@ -236,14 +239,14 @@ export function Client() {
         <Section>
           <FirstSubSection>
             <InputContainer>
-              <Label>Nome completo</Label>
+              <Label>{t("Nome completo")}</Label>
               <Controller
                 control={control}
                 name="name"
                 render={({ field: { value, onChange } }) => (
                   <Input
                     style={{ width: "60%" }}
-                    placeholder="Nome"
+                    placeholder={t("Nome")}
                     value={value}
                     onChange={onChange}
                     type="text"
@@ -279,7 +282,7 @@ export function Client() {
                 render={({ field: { value, onChange } }) => (
                   <Input
                     style={{ width: 128 }}
-                    placeholder="IE ou RG"
+                    placeholder="RG"
                     value={value}
                     onChange={onChange}
                     type="text"
@@ -289,7 +292,7 @@ export function Client() {
             </InputContainer>
 
             <InputContainer>
-              <Label>Órgão emissor</Label>
+              <Label>{t("Órgão emissor")}</Label>
               <Controller
                 control={control}
                 name="oe"
@@ -308,7 +311,7 @@ export function Client() {
 
           <SubSection>
             <InputContainer>
-              <Label>Telefone</Label>
+              <Label>{t("Telefone")}</Label>
               <Controller
                 control={control}
                 name="phone"
@@ -324,7 +327,7 @@ export function Client() {
             </InputContainer>
 
             <InputContainer>
-              <Label>Celular</Label>
+              <Label>{t("Celular")}</Label>
               <Controller
                 control={control}
                 name="cellphone"
@@ -344,7 +347,7 @@ export function Client() {
 
         <Section>
           <InputContainer>
-            <Label>Data de nascimento</Label>
+            <Label>{t("Data de nascimento")}</Label>
             <Controller
               control={control}
               name="birth_date"
@@ -360,7 +363,7 @@ export function Client() {
           </InputContainer>
 
           <InputContainer>
-            <Label>Nacionalidade</Label>
+            <Label>{t("Nacionalidade")}</Label>
             <Controller
               control={control}
               name="nationality"
@@ -376,7 +379,7 @@ export function Client() {
           </InputContainer>
 
           <InputContainer>
-            <Label>Estado de nascimento</Label>
+            <Label>{t("Estado de nascimento")}</Label>
             <Select
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setSelectedUf(e.target.value)
@@ -384,7 +387,7 @@ export function Client() {
               value={ufSelected}
             >
               <option selected disabled value="default">
-                Selecione o estado...
+                {t("Selecione o estado...")}
               </option>
               {ufs.map((uf) => (
                 <option key={uf.id} value={uf.sigla}>
@@ -395,7 +398,9 @@ export function Client() {
           </InputContainer>
 
           <InputContainer>
-            <Label>Naturalidade (Cidade de nascimento)</Label>
+            <Label>
+              {t("Naturalidade")} ({t("Cidade de nascimento")})
+            </Label>
             <Select
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setSelectedCity(e.target.value)
@@ -403,7 +408,7 @@ export function Client() {
               value={selectedCity}
             >
               <option selected disabled value="default">
-                Selecione a cidade...
+                {t("Selecione a cidade...")}
               </option>
               {cities.map((city) => (
                 <option key={city.id} value={city.nome}>
@@ -417,7 +422,7 @@ export function Client() {
 
         <Section>
           <InputContainer>
-            <Label>Estado civil</Label>
+            <Label>{t("Estado civil")}</Label>
             <Select
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setSelectedStatus(e.target.value)
@@ -425,7 +430,7 @@ export function Client() {
               value={selectedStatus}
             >
               <option selected disabled value="default">
-                Selecione o estado civil...
+                {t("Selecione o estado civil...")}
               </option>
               {marital_status.map((item) => (
                 <option key={item} value={item}>
@@ -436,7 +441,7 @@ export function Client() {
           </InputContainer>
 
           <InputContainer>
-            <Label>Sexo</Label>
+            <Label>{t("Sexo")}</Label>
             <Select
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setSelectedGender(e.target.value)
@@ -444,7 +449,7 @@ export function Client() {
               value={selectedGender}
             >
               <option selected disabled value="default">
-                Selecione o sexo...
+                {t("Selecione o sexo...")}
               </option>
               {genders.map((item) => (
                 <option key={item} value={item}>
@@ -458,14 +463,14 @@ export function Client() {
 
         {!createMode ? (
           <Button
-            title="Atualizar"
+            title={t("Atualizar")}
             model="default"
             disabled={!selectedClient}
             onClick={handleSubmit(handleUpdate)}
           />
         ) : (
           <Button
-            title="Adicionar"
+            title={t("Adicionar")}
             model="default"
             onClick={handleSubmit(handleCreate)}
           />
@@ -474,8 +479,8 @@ export function Client() {
       </Form>
 
       <Footer>
-        <Button title="Continuar" model="secondary" />
-        <BackLink>Voltar</BackLink>
+        <Button title={t("Continuar")} model="secondary" />
+        <BackLink>{t("Voltar")}</BackLink>
       </Footer>
     </Container>
   );

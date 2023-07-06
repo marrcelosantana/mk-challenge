@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 
 import {
   BackLink,
@@ -21,22 +22,24 @@ interface Props {
 }
 
 export function RemoveModal({ file, setOpenModal, handleRemoveFile }: Props) {
+  const { t } = useTranslation();
+
   return (
     <Dialog.Portal>
       <Overlay />
       <Content>
-        <Title>Tem certeza que deseja excluir este arquivo?</Title>
+        <Title>{t("Tem certeza que deseja excluir este arquivo?")}</Title>
         <Line />
 
         <Subtitle>
-          As mudanças serão salvas e a ação não poderá ser desfeita.
+          {t("As mudanças serão salvas e a ação não poderá ser desfeita.")}
         </Subtitle>
 
         <Divider />
         <Footer>
-          <BackLink onClick={() => setOpenModal(false)}>Voltar</BackLink>
+          <BackLink onClick={() => setOpenModal(false)}>{t("Voltar")}</BackLink>
           <DeleteButton onClick={() => handleRemoveFile(file.name)}>
-            Excluir
+            {t("Excluir")}
           </DeleteButton>
         </Footer>
         <CloseButton onClick={() => setOpenModal(false)}>

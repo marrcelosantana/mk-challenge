@@ -23,6 +23,19 @@ export const Actions = styled.div`
   gap: 20px;
 `;
 
+export const Flags = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;
+
+export const Flag = styled.img`
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+`;
+
 export const Button = styled.button`
   width: 36px;
   height: 36px;
@@ -32,4 +45,14 @@ export const Button = styled.button`
   border-radius: 50%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   border: 0;
+
+  @media (max-width: 414px) {
+    width: 20px;
+    height: 20px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
 `;

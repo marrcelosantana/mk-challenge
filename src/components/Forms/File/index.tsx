@@ -7,6 +7,7 @@ import { ArrowCircleDown, ArrowCircleUp, Trash } from "@phosphor-icons/react";
 import { Button } from "@/components/Button";
 import { RemoveModal } from "@/components/RemoveModal";
 
+import { useTranslation } from "react-i18next";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import {
@@ -33,7 +34,7 @@ import {
 } from "./styles";
 
 export function File() {
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "text/xls": [".xls"],
       "application/pdf": [".pdf"],
@@ -57,6 +58,8 @@ export function File() {
   const [openModal, setOpenModal] = useState(false);
   const theme = useTheme();
 
+  const { t } = useTranslation();
+
   function removeFile(name: string) {
     const newArray = files.filter((file) => file.name !== name);
     setFiles(newArray);
@@ -66,7 +69,7 @@ export function File() {
   return (
     <Container>
       <Section>
-        <Title>Anexar arquivos</Title>
+        <Title>{t("Anexar Arquivos")}</Title>
         <Line />
 
         {files.map((file) => (
@@ -107,13 +110,13 @@ export function File() {
 
             <DropzoneInfo>
               <DropzoneText>
-                Arraste para dentro ou{" "}
-                <Bold style={{ fontWeight: "bold" }}>clique</Bold> para
-                selecionar um arquivo
+                {t("Arraste para dentro ou")}{" "}
+                <Bold style={{ fontWeight: "bold" }}>{t("clique")}</Bold>{" "}
+                {t("para selecionar um arquivo")}
               </DropzoneText>
 
               <DropzoneSubtitle>
-                Formatos suportados: PDF, Word, JPG, XLS e PNG
+                {t("Formatos suportados: PDF, Word, JPG, XLS e PNG")}
               </DropzoneSubtitle>
             </DropzoneInfo>
             <ArrowCircleUp size={22} color={theme.COLORS.DARK_BLUE} />
@@ -124,8 +127,8 @@ export function File() {
       <Divider />
 
       <Footer>
-        <Button title="Continuar" model="secondary" />
-        <BackLink>Voltar</BackLink>
+        <Button title={t("Continuar")} model="secondary" />
+        <BackLink>{t("Voltar")}</BackLink>
       </Footer>
     </Container>
   );

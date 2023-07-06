@@ -116,4 +116,8 @@ export const CloseButton = styled(Dialog.Close)`
   margin-top: -10px;
   margin-right: -10px;
   cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
