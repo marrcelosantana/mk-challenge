@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "styled-components";
 
 import { useDropzone } from "react-dropzone";
@@ -54,9 +54,10 @@ export function File() {
 
   const theme = useTheme();
 
-  useEffect(() => {
-    console.log(files);
-  }, [files]);
+  function removeFile(name: string) {
+    const newArray = files.filter((file) => file.name !== name);
+    setFiles(newArray);
+  }
 
   return (
     <Container>
@@ -76,7 +77,11 @@ export function File() {
 
             <PreviewActions>
               <ArrowCircleDown size={20} color={theme.COLORS.DARK_BLUE} />
-              <Trash size={20} color="#F92828" />
+              <Trash
+                size={20}
+                color="#F92828"
+                onClick={() => removeFile(file.name)}
+              />
             </PreviewActions>
           </Preview>
         ))}
