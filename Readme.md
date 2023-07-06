@@ -1,7 +1,8 @@
-<div>
   <h1 style="text-align: center; font-weight: bold;">MK Next - Challenge</h1>
+  
+  <div style="display: flex; align-items: center; justify-content: center">
   <img src="src/assets/logo.svg" height="100"  >
-</div>
+  </div>
 
 <br>
 <br>

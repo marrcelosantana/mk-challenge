@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
+
 import { Button } from "..";
+
 import { defaultTheme } from "../../../styles/themes/default-theme";
 import { ThemeProvider } from "styled-components";
 
