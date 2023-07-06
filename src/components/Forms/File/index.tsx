@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "styled-components";
 
 import { useDropzone } from "react-dropzone";
@@ -26,17 +26,11 @@ import {
   PreviewTitle,
   PreviewSubtitle,
   PreviewActions,
+  Thumb,
 } from "./styles";
 
 export function File() {
-  const {
-    getRootProps,
-    getInputProps,
-    acceptedFiles,
-    isFocused,
-    isDragAccept,
-    isDragReject,
-  } = useDropzone({
+  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
     accept: {
       "text/xls": [".xls"],
       "application/pdf": [".pdf"],
@@ -44,9 +38,19 @@ export function File() {
       "image/png": [".png"],
       "image/jpg": [".jpg"],
     },
+    maxFiles: 2,
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
+    },
   });
 
-  const files = acceptedFiles;
+  const [files, setFiles] = useState<any[]>([]);
 
   const theme = useTheme();
 
@@ -60,10 +64,25 @@ export function File() {
         <Title>Anexar arquivos</Title>
         <Line />
 
-        {files.length === 0 ? (
-          <Dropzone
-            {...getRootProps({ isFocused, isDragAccept, isDragReject })}
-          >
+        {files.map((file) => (
+          <Preview>
+            <PreviewInfo>
+              {file.type === "image/jpeg" && <Thumb src={file.preview} />}
+              <PreviewTextContainer>
+                <PreviewTitle>{file.name}</PreviewTitle>
+                <PreviewSubtitle>{file.size} KB</PreviewSubtitle>
+              </PreviewTextContainer>
+            </PreviewInfo>
+
+            <PreviewActions>
+              <ArrowCircleDown size={20} color={theme.COLORS.DARK_BLUE} />
+              <Trash size={20} color="#F92828" />
+            </PreviewActions>
+          </Preview>
+        ))}
+
+        {files.length < 2 && (
+          <Dropzone {...getRootProps({ className: "dropzone" })}>
             <Input {...getInputProps()} />
 
             <DropzoneInfo>
@@ -77,25 +96,8 @@ export function File() {
                 Formatos suportados: PDF, Word, JPG, XLS e PNG
               </DropzoneSubtitle>
             </DropzoneInfo>
-
             <ArrowCircleUp size={22} color={theme.COLORS.DARK_BLUE} />
           </Dropzone>
-        ) : (
-          files.map((file) => (
-            <Preview>
-              <PreviewInfo>
-                <PreviewTextContainer>
-                  <PreviewTitle>{file.name}</PreviewTitle>
-                  <PreviewSubtitle>{file.size} KB</PreviewSubtitle>
-                </PreviewTextContainer>
-              </PreviewInfo>
-
-              <PreviewActions>
-                <ArrowCircleDown size={20} color={theme.COLORS.DARK_BLUE} />
-                <Trash size={20} color="#F92828" />
-              </PreviewActions>
-            </Preview>
-          ))
         )}
       </Section>
 

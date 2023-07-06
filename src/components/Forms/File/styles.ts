@@ -186,7 +186,10 @@ export const PreviewInfo = styled.div`
   gap: 10px;
 `;
 
-export const File = styled.img``;
+export const Thumb = styled.img`
+  width: 40px;
+  height: 40px;
+`;
 
 export const PreviewTextContainer = styled.div``;
 
