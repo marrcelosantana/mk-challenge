@@ -59,6 +59,6 @@ Link: https://youtu.be/jBtKJQ2YIu4
 
 ### Responsividade
 
-|                   Cliente                   |                 Arquivos                 |
-| :-----------------------------------------: | :--------------------------------------: |
-| <img src= "public/screenshots/client.png" > | <img src= "public/screenshots/file.png"> |
+|                  Cliente                   |                 Arquivos                 |                   Modal                   |
+| :----------------------------------------: | :--------------------------------------: | :---------------------------------------: |
+| <img src= "public/screenshots/client.png"> | <img src= "public/screenshots/file.png"> | <img src= "public/screenshots/modal.png"> |
