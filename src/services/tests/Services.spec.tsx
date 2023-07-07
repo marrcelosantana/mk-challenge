@@ -24,18 +24,18 @@ describe("api_IBGE", () => {
 
   it("should make a successful GET request", async () => {
     const responseData = { data: "response" };
-    mock.onGet("/some-endpoint").reply(200, responseData);
+    mock.onGet("/ibge-endpoint").reply(200, responseData);
 
-    const response: AxiosResponse = await api_IBGE.get("/some-endpoint");
+    const response: AxiosResponse = await api_IBGE.get("/ibge-endpoint");
 
     expect(response.status).toBe(200);
     expect(response.data).toEqual(responseData);
   });
 
   it("should handle a failed GET request", async () => {
-    mock.onGet("/some-endpoint").reply(404);
+    mock.onGet("/ibge-endpoint").reply(404);
 
-    await expect(api_IBGE.get("/some-endpoint")).rejects.toThrow();
+    await expect(api_IBGE.get("/ibge-endpoint")).rejects.toThrow();
   });
 });
 
