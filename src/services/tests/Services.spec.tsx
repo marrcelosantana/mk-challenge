@@ -16,13 +16,13 @@ describe("api_IBGE", () => {
     mock.restore();
   });
 
-  test("should have the correct baseURL", () => {
+  it("should have the correct baseURL", () => {
     expect(api_IBGE.defaults.baseURL).toBe(
       "https://servicodados.ibge.gov.br/api/v1/localidades"
     );
   });
 
-  test("should make a successful GET request", async () => {
+  it("should make a successful GET request", async () => {
     const responseData = { data: "response" };
     mock.onGet("/some-endpoint").reply(200, responseData);
 
@@ -32,7 +32,7 @@ describe("api_IBGE", () => {
     expect(response.data).toEqual(responseData);
   });
 
-  test("should handle a failed GET request", async () => {
+  it("should handle a failed GET request", async () => {
     mock.onGet("/some-endpoint").reply(404);
 
     await expect(api_IBGE.get("/some-endpoint")).rejects.toThrow();
@@ -40,7 +40,7 @@ describe("api_IBGE", () => {
 });
 
 describe("api", () => {
-  test("should have the correct base URL", () => {
+  it("should have the correct base URL", () => {
     const api = axios.create({
       baseURL: "http://localhost:3333",
     });

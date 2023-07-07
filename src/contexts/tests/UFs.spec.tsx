@@ -14,7 +14,7 @@ type UFDTO = {
 };
 
 describe("fetchUfs", () => {
-  test("should fetch UFs and set the state", async () => {
+  it("should fetch UFs and set the state", async () => {
     const responseMock: UFDTO[] = [
       {
         id: 1,
