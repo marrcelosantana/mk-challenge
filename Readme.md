@@ -1,7 +1,7 @@
   <h1 style="text-align: center; font-weight: bold;">MK Next - Challenge</h1>
   
   <div style="display: flex; align-items: center; justify-content: center">
-  <img src="src/assets/logo.svg" height="100"  >
+    <img src="src/assets/logo.svg" height="100"  >
   </div>
 
 <br>
@@ -51,6 +51,20 @@ $ cd mk-challenge
 $ npm install
 # Execute o backend da aplicação
 $ npm run api
+
+```
+
+### Como rodar os testes
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/marrcelosantana/mk-challenge
+# Acesse a pasta do projeto
+$ cd mk-challenge
+# Instale as dependências
+$ npm install
+# Execute o comando de teste
+$ npm run test
 
 ```
 
