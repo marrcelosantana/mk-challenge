@@ -38,3 +38,13 @@ describe("api_IBGE", () => {
     await expect(api_IBGE.get("/some-endpoint")).rejects.toThrow();
   });
 });
+
+describe("api", () => {
+  test("should have the correct base URL", () => {
+    const api = axios.create({
+      baseURL: "http://localhost:3333",
+    });
+
+    expect(api.defaults.baseURL).toBe("http://localhost:3333");
+  });
+});
