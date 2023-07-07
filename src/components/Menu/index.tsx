@@ -9,37 +9,57 @@ export function Menu() {
 
   return (
     <Container data-testid="navlink-testId">
-      <Option to="/product" onClick={() => setSelectedOption("product")}>
+      <Option
+        data-testid="option-product-testId"
+        to="/product"
+        onClick={() => setSelectedOption("product")}
+      >
         <OptionNumber>1</OptionNumber>
-        <OptionName option="product" selectedOption={selectedOption}>
+        <OptionName option="product" selected_option={selectedOption}>
           {t("Produto")}
         </OptionName>
       </Option>
 
-      <Option to="/" onClick={() => setSelectedOption("client")}>
+      <Option
+        data-testid="option-client-testId"
+        to="/"
+        onClick={() => setSelectedOption("client")}
+      >
         <OptionNumber>2</OptionNumber>
-        <OptionName option="client" selectedOption={selectedOption}>
+        <OptionName option="client" selected_option={selectedOption}>
           {t("Cliente")}
         </OptionName>
       </Option>
 
-      <Option to="/file" onClick={() => setSelectedOption("file")}>
+      <Option
+        data-testid="option-file-testId"
+        to="/file"
+        onClick={() => setSelectedOption("file")}
+      >
         <OptionNumber>3</OptionNumber>
-        <OptionName option="file" selectedOption={selectedOption}>
+        <OptionName option="file" selected_option={selectedOption}>
           {t("Anexar arquivo")}
         </OptionName>
       </Option>
 
-      <Option to="/pay" onClick={() => setSelectedOption("pay")}>
+      <Option
+        data-testid="option-pay-testId"
+        to="/pay"
+        onClick={() => setSelectedOption("pay")}
+      >
         <OptionNumber>4</OptionNumber>
-        <OptionName option="pay" selectedOption={selectedOption}>
+        <OptionName option="pay" selected_option={selectedOption}>
           {t("Pagamentos")}
         </OptionName>
       </Option>
 
-      <Option to="/contract" onClick={() => setSelectedOption("contract")}>
+      <Option
+        data-testid="option-contract-testId"
+        to="/contract"
+        onClick={() => setSelectedOption("contract")}
+      >
         <OptionNumber>5</OptionNumber>
-        <OptionName option="contract" selectedOption={selectedOption}>
+        <OptionName option="contract" selected_option={selectedOption}>
           {t("Contrato")}
         </OptionName>
       </Option>

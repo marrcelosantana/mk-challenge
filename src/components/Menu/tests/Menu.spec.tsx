@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { Menu } from "..";
 
@@ -9,6 +10,13 @@ import { BrowserRouter } from "react-router-dom";
 
 const TEST_ID = "navlink-testId";
 
+const navlinks: string[] = [
+  "Produto",
+  "Cliente",
+  "Anexar arquivo",
+  "Pagamentos",
+  "Contrato",
+];
 describe("Test button", () => {
   beforeEach(() => {
     render(
@@ -22,5 +30,11 @@ describe("Test button", () => {
 
   it("should test", () => {
     expect(screen.getByTestId(TEST_ID)).toBeVisible();
+  });
+
+  it("should all link are visible", () => {
+    navlinks.forEach((item: string) => {
+      expect(screen.getByText(item)).toBeVisible();
+    });
   });
 });

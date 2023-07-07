@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 
 type OptionProps = {
   option: string;
-  selectedOption: string;
+  selected_option: string;
 };
 
 export const Container = styled.div`
@@ -58,8 +58,8 @@ export const OptionName = styled.p<OptionProps>`
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.DARK_GREEN};
 
-  text-decoration: ${({ option, selectedOption }) =>
-    option === selectedOption && "underline"};
+  text-decoration: ${({ option, selected_option }) =>
+    option === selected_option && "underline"};
 
   &:hover {
     text-decoration: underline;
